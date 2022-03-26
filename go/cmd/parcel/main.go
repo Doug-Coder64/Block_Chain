@@ -13,6 +13,7 @@ func main() {
 		Run: func(cmd *cobra.Command, args []string) {
 		},
 	}
+	parcelCmd.AddCommand(versionCmd)
 
 	err := parcelCmd.Execute()
 	if err != nil {
