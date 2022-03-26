@@ -14,10 +14,16 @@ func main() {
 		},
 	}
 	parcelCmd.AddCommand(versionCmd)
+	parcelCmd.AddCommand(balancesCmd())
+	parcelCmd.AddCommand(txCmd())
 
 	err := parcelCmd.Execute()
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
+}
+
+func incorrectUsageErr() error {
+	return fmt.Errorf("incorrect usage")
 }
