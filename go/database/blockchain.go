@@ -1,4 +1,4 @@
-package main
+package database
 
 func (blockchain *Blockchain) AddBlock(data string) {
 	PreviousBlock := blockchain.Blocks[len(blockchain.Blocks)-1]
