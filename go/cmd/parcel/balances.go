@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/Doug-Coder64/Block_Chain/go/database"
 	"github.com/spf13/cobra"
 )
 func balanceCmd() *cobra.Command {

@@ -1,6 +1,9 @@
 package main
 
 import (
+	"fmt"
+	"os"
+
 	"github.com/spf13/cobra"
 )
 
@@ -31,7 +34,40 @@ func txAddCmd() *cobra.Command {
 
 			fromAcc := database.NewAccount(from)
 			toAcc := database.NewAccount(to)
-		}
+
+			tx  := database.NewTx(fromAcc, toAcc, value, "")
+
+			state, err := database.NewStateFromDisk()
+			if err != nil {
+				fmt.Fprintln(os.Stderr, err)
+				os.Exit(1)
+			}
+
+			defer state.Close()
+
+			err = state.add(tx)
+			if err != nil {
+				fmt.Fprintln(os.Stderr, err)
+				os.Exit(1)
+			}
+
+			err = state.Persist()
+			if err != nil {
+				fmt.Fprintln(os.Stderr, err)
+				os.Exit(1)
+			}
+
+			fmt.Println("TX successfully added to the ledger.")
+		},
+
 
 	}
+	txsAddCmd.Flags().String(flagFrom, "", "From what account to send tokens")
+	txsAddCmd.MarkFlagRequired(flagFrom)
+	txsAddCmd.Flags().String(flagTo, "", "To what account to send tokens")
+	txsAddCmd.MarkFlagRequired(flagTo)
+	txsAddCmd.Flags().Uint(flagValue, 0, "How many tokens to send")
+	txsAddCmd.MarkFlagRequired(flagValue)
+	return txsAddCmd
+
 }
