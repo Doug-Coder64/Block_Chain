@@ -43,4 +43,5 @@ var balancesListCmd = &cobra.Command{
 			fmt.Println(fmt.Sprintf("%s: %d", account, balance))
 		}
 	},
+
 }

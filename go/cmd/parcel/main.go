@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
+
 )
 
 const flagDataDir = "datadir"
@@ -35,3 +36,8 @@ func addDefaultRequiredFlags(cmd *cobra.Command) {
 	cmd.MarkFlagRequired(flagDataDir)
 }
 
+func getDataDirFromCmd(cmd *cobra.Command) string {
+	dataDir, _ := cmd.Flags().GetString(flagDataDir)
+
+	return fs.ExpandPath(dataDir)
+}
