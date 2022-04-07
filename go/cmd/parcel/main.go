@@ -8,7 +8,6 @@ import (
 )
 
 const flagDataDir = "datadir"
-
 func main() {
 	var parcelCmd = &cobra.Command{
 		Use: "parcel",
@@ -18,7 +17,7 @@ func main() {
 	}
 	parcelCmd.AddCommand(versionCmd)
 	parcelCmd.AddCommand(balancesCmd())
-	parcelCmd.AddCommand(txCmd())
+	parcelCmd.AddCommand(runCmd())
 
 	err := parcelCmd.Execute()
 	if err != nil {
@@ -35,3 +34,4 @@ func addDefaultRequiredFlags(cmd *cobra.Command) {
 	cmd.Flags().String(flagDataDir, "", "Absolute path to the node data dir where the DB will/is stored")
 	cmd.MarkFlagRequired(flagDataDir)
 }
+
