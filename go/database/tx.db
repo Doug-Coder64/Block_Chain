@@ -8,4 +8,5 @@
 {"from":"doug","to":"doug","value":100,"data":"reward"}
 {"from":"doug","to":"doug","value":100,"data":"reward"}
 {"from":"doug","to":"doug","value":100,"data":"reward"}
-{"from":"doug","to":"andrej","value":100,"data":"reward"}
+{"from":"doug","to":"Doug","value":100,"data":"reward"}{"hash":"0832f60a639315ac596ef3850741a7c9568d5dcac094d96db367a33b07003ab2","block":{"header":{"parent":"0000000000000000000000000000000000000000000000000000000000000000","time":1649343678},"payload":[]}}
+{"hash":"469cc8ffcae3a18623ac213b775ad40ba8df9e60d24b1cc6e9d3be8237073703","block":{"header":{"parent":"0832f60a639315ac596ef3850741a7c9568d5dcac094d96db367a33b07003ab2","time":1649343678},"payload":[]}}
