@@ -15,7 +15,7 @@ func runCmd() *cobra.Command {
 		Run: func(cmd *cobra.Command, args []string) {
 			dataDir, _ := cmd.Flags().GetString(flagDataDir)
 
-			fmt.Printf("Launching TBB node and its HTTP API...")
+			fmt.Printf("Launching parcel node and its HTTP API...")
 
 			err := node.Run(dataDir)
 			if err != nil {
