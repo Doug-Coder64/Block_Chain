@@ -12,5 +12,4 @@ type Blockchain struct {
 	Blocks []*Block
 } */
 
-type Account string
 

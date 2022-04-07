@@ -16,6 +16,10 @@ type BlockHeader struct {
 	Parent Hash
 	Time uint64
 }
+type BlockFS struct {
+	Key   Hash  `json:"hash"`
+	Value Block `json:"block"`
+}
 
 func (b Block) Hash() (Hash, error) {
 	blockJson, err := json.Marshal(b)
@@ -24,3 +28,8 @@ func (b Block) Hash() (Hash, error) {
 	}
 	return sha256.Sum256(blockJson), nil
 }
+
+func NewBlock(parent Hash, time uint64, txs []Tx) Block {
+	return Block{BlockHeader{parent, time}, txs}
+}
+
